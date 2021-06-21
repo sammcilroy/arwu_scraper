@@ -347,11 +347,12 @@ def get_driver(headless=False):
     # setup Selenium Firefox driver
     # option to run headless or to monitor the collection
     if not headless:
-        driver = webdriver.Firefox(executable_path= r"/users/Sam/Downloads/geckodriver")
+        # SET DRIVER PATH TO PATH TO REPO /driver/geckodriver ON LOCAL MACHINE
+        driver = webdriver.Firefox(executable_path= r"/users/Sam/code/arwu_scraper/driver/geckodriver")
     else:
         options = webdriver.FirefoxOptions()
         options.headless = True
-        driver = webdriver.Firefox(executable_path= r"/users/Sam/Downloads/geckodriver", options=options)
+        driver = webdriver.Firefox(executable_path= r"/users/Sam/code/arwu_scraper/driver/geckodriver", options=options)
     return driver
 
 def get_num_pages(driver):
@@ -624,7 +625,7 @@ def main():
                     data.to_csv("awru_complete_dataset.csv", index=False, header=True)
                 else:
                     # if csv does exist (process has already started)
-                    # append to the current csv, ommiting the header row
+                    # append to the current csv, ommiting the header
                     with open('awru_complete_dataset.csv', 'a') as f:
                         data.to_csv(f, index=False, header=False)
             except:

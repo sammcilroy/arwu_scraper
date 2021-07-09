@@ -348,11 +348,11 @@ def get_driver(headless=False):
     # option to run headless or to monitor the collection
     if not headless:
         # SET DRIVER PATH TO PATH TO REPO /driver/geckodriver ON LOCAL MACHINE
-        driver = webdriver.Firefox(executable_path= r"/users/Sam/code/arwu_scraper/driver/geckodriver")
+        driver = webdriver.Firefox(executable_path= r"/home/sam/code/arwu_scraper/driver/geckodriver")
     else:
         options = webdriver.FirefoxOptions()
         options.headless = True
-        driver = webdriver.Firefox(executable_path= r"/users/Sam/code/arwu_scraper/driver/geckodriver", options=options)
+        driver = webdriver.Firefox(executable_path= r"/home/sam/code/arwu_scraper/driver/geckodriver", options=options)
     return driver
 
 def get_num_pages(driver):
